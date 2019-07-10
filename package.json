@@ -1,0 +1,45 @@
+{
+  "name": "npm_boilerplate_tdd",
+  "version": "1.0.0",
+  "description": "Library to discover the level of satisfy customer.",
+  "main": "./src/main.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha tests/**/*.spec.js -- --reporter=nyan --require babel-register",
+    "lint": "./node_modules/.bin/eslint src/**/*.js",
+    "coverage": "./node_modules/.bin/nyc npm test"
+  },
+  "nyc": {
+    "functions": 80,
+    "lines": 80,
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "husky": "^2.4.1",
+    "mocha": "^6.1.4",
+    "node-fetch": "^2.6.0",
+    "nyc": "^14.1.1",
+    "sinon": "^7.3.2",
+    "sinon-chai": "^3.3.0",
+    "sinon-stub-promise": "^4.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run coverage"
+    }
+  }
+}
