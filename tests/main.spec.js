@@ -22,5 +22,12 @@ describe('Main', () => {
 
   });
 
+  context('Message input', () => {
+    it('Should be return an msg', () => {
+      const msg = input('Test message');
+      expect(msg).to.be.equal('Test message')
+    });
+  });
+
 });
 
